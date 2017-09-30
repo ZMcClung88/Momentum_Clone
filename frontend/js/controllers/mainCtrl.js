@@ -1,4 +1,4 @@
-angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgroundService) {
+angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgroundService, quotesService) {
   /// TIME
   $scope.time = moment().format('h:mm ');
 
@@ -14,5 +14,14 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
   };
   $scope.backgroundImages();
   console.log($scope.backgroundImages());
+
+  /// QUOTES
+  $rootScope.quotes = function() {
+    let quotes = quotesService.quotes;
+    let randomQuote = Math.floor(Math.random() * quotes.length);
+    $scope.quote = quotes[randomQuote];
+
+  }
+  $scope.quotes();
 
 });
