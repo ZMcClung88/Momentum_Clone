@@ -18,6 +18,18 @@ body {
   .header {
     // border: 2px solid green;
     height: 10%;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    .weather-display {
+      display: flex;
+      flex-direction: column;
+      margin-right: 75px;
+      align-items: center;
+      .weather-icon {
+        fill: white;
+      }
+    }
   }
   .content {
     height: 75%;
@@ -58,5 +70,7 @@ body {
   .footer {
     color: white;
     text-align: center;
+    font-size: 18px;
+    font-weight: lighter;
   }
 }
