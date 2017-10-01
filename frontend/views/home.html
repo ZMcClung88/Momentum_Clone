@@ -1,8 +1,13 @@
 <div class="main-wrapper">
   <div class="header">
     <div class="weather-display">
-      <p>{{ city }}</p>
+      <div class="temp-icon">
         <img ng-src='/frontend/weather-icons/{{icon}}' alt="description" class="weather-icon">
+        <p>{{ weather }}&deg</p>
+      </div>
+      <div class="city">
+        <p>{{ city }}</p>
+      </div>
     </div>
   </div><!-- end header -->
   <div class="content">
@@ -11,7 +16,7 @@
       <div class="greeting"><p>What is your name?</p></div>
       <div class="input">
         <form ng-submit="getName()">
-          <input class="input-field" type="text" my-enter="getName()">
+          <input class="input-field" type="text" my-enter="getName(name, $event)"  ng-model="name">
           <div ng-hide="true"><p>Good Afternoon, {{ name }}.</p></div>
         </form>
       </div><!-- end input -->

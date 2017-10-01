@@ -3,7 +3,6 @@ angular.module('app').service('weatherService', function($http) {
 
   this.getWeather = function() {
     return $http.get(URL).then(function(response) {
-      console.log(response.data);
       return response.data;
     })
   }

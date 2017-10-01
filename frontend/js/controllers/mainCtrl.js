@@ -6,8 +6,10 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
   $scope.time = moment().format('h:mm ');
 
   ////////////// GET NAME //////////////
-  $scope.getName = function () {
-
+  $scope.getName = function (name, $event) {
+    event.preventDefault();
+    console.log('name', name);
+    $scope.name = name;
   }
 
   ////////////// BACKGROUND IMAGES //////////////
