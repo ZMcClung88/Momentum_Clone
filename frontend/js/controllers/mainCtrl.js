@@ -11,6 +11,17 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
 
   ////////////// TIME //////////////
   $scope.time = moment().format('h:mm ');
+  $scope.ampm = $scope.time < 12 ? "PM" : "AM";
+
+  $(function() {
+    $("#time").hover(function() {
+      $("#ampm").fadeIn("slow");
+    },
+    function() {
+        $("#ampm").fadeOut("fast");
+    });
+  })
+
 
   ////////////// QUOTE HOVER //////////////
   $(function() {
@@ -19,9 +30,8 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
     },
     function(){
       $("#author").fadeOut("slow");
-    }
-  );
-})
+    });
+  })
 
 
 

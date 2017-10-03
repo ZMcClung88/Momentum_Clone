@@ -12,7 +12,14 @@
   </div><!-- end header -->
   <div class="content">
     <div class="display">
-      <div class="time"><h1>{{ time }}</h1></div>
+      <div class="time">
+        <h1 id="time">{{ time }}</h1>
+        <div class="ampm" id="ampm"><p>{{ ampm }}</p></div>
+        <!-- <div class="ampm"> -->
+          <!-- <p class="am">AM</p>
+          <p class="pm">PM</p> -->
+        <!-- </div> -->
+      </div>
       <div class="greeting">
         <div id="greeting-personal"></div>
       </div><!-- end input -->
