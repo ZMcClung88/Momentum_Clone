@@ -95,6 +95,9 @@ body {
           font-size: 36px;
           outline: none;
         }
+        #greeting-personal {
+          display: none;
+        }
       }
     }
   }
@@ -103,5 +106,9 @@ body {
     text-align: center;
     font-size: 18px;
     font-weight: lighter;
+  }
+  .quote-author {
+    display: none;
+    margin-top: -15px;
   }
 }

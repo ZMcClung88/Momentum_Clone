@@ -6,11 +6,40 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
   $scope.time = moment().format('h:mm ');
 
   ////////////// GET NAME //////////////
-  $scope.getName = function (name, $event) {
-    event.preventDefault();
+  $scope.getName = function (name) {
     console.log('name', name);
     $scope.name = name;
   }
+
+  ////////////// GREETING //////////////
+  // $('body').keypress(function(key) {
+  //   if(key.which == 13){
+  //     console.log('you hit enter!')
+  //     $('#input').hide() && $('#greeting-personal').show();
+  //   }
+  // });
+
+  ////////////// QUOTE HOVER //////////////
+  // $("#quote").mouseover(function() {
+  //   console.log('mouse in the house!');
+  //   $("#author").removeClass('quote-author');
+  // });
+  // $("#quote").mouseleave(function() {
+  //   console.log('mouse out of the house!');
+  //   $("#author").addClass('quote-author');
+  // });
+
+  $(function() {
+    $("#quote").hover(function(){
+      $("#author").fadeIn("slow");
+    },
+    function(){
+      $("#author").fadeOut("slow");
+    }
+  );
+})
+
+
 
   ////////////// BACKGROUND IMAGES //////////////
   $rootScope.backgroundImages = function() {
@@ -40,7 +69,7 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
     let quotes = quotesService.quotes;
     let randomQuote = Math.floor(Math.random() * quotes.length);
     $scope.quote = quotes[randomQuote];
-
+  
   }
   $scope.quotes();
 
