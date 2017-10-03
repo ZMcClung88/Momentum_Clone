@@ -7,7 +7,7 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
 
   ////////////// GET NAME //////////////
   $scope.getName = function (name) {
-    console.log('name', name);
+    // console.log('name', name);
     $scope.name = name;
   }
 
@@ -52,24 +52,24 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
     };
   };
   $rootScope.backgroundImages();
-  console.log($scope.backgroundImages());
+  // console.log($scope.backgroundImages());
 
   ////////////// WEATHER //////////////
   weatherService.getWeather().then(function(response) {
     $scope.city = response.city.name;
-    console.log($scope.city);
+    // console.log($scope.city);
     $scope.weather = Math.floor(response.list[0].main.temp);
-    console.log($scope.weather);
+    // console.log($scope.weather);
     $scope.icon = response.list[0].weather[0].icon + '.svg';
-    console.log($scope.icon);
+    // console.log($scope.icon);
   });
 
-  ////////////// QUOTES //////////////
+  //////////// QUOTES //////////////
   $scope.quotes = function() {
     let quotes = quotesService.quotes;
     let randomQuote = Math.floor(Math.random() * quotes.length);
     $scope.quote = quotes[randomQuote];
-  
+
   }
   $scope.quotes();
 
