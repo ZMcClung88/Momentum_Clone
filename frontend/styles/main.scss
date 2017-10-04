@@ -79,7 +79,7 @@ body {
       .time {
         font-size: 75px;
         margin-bottom: -150px;
-        padding-bottom: 85px;
+        // padding-bottom: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -87,12 +87,15 @@ body {
         .ampm {
           display: none;
         }
-
+      }
+      // .militaryTime {
+      //   display: none;
+      // }
       .greeting {
-        margin-top: 50px;
+        margin-top: 40px;
+        // border: 1px solid red;
       }
     }
-  }
   }
   .footer {
     color: white;

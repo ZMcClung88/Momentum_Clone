@@ -1,17 +1,9 @@
 angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgroundService, quotesService, weatherService) {
 
-  ////////////// GREETING //////////////
-  function greeting() {
-    let customerName = prompt("Please enter your name...");
-    if(customerName != null) {
-      document.getElementById("greeting-personal").innerHTML = "Good afternoon, " + customerName + ".";
-    }
-  }
-  greeting();
 
   ////////////// TIME //////////////
   $scope.time = moment().format('h:mm ');
-  $scope.ampm = $scope.time < 12 ? "PM" : "AM";
+  $scope.ampm = moment().format('a');
 
   $(function() {
     $("#time").hover(function() {
@@ -21,6 +13,39 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
         $("#ampm").fadeOut("fast");
     });
   })
+
+  const theHours = new Date().getHours();
+  let theMessage;
+  let morning = ('Good morning');
+  let afternoon =('Good afternoon');
+  let evening = ('Good evening');
+
+  if(theHours >= 0 && theHours < 12) {
+    theMessage = morning;
+  } else if (theHours >= 12 && theHours < 17) {
+    theMessage = afternoon;
+  } else if (theHours >= 17 && theHours < 24) {
+    theMessage = evening;
+  }
+
+  ////////////// MILITARY TIME //////////////
+  $scope.militaryTime = moment().format('H:mm');
+
+  ////////////// TOGGLE TIME AND MILITARY TIME //////////////
+  $("#militaryTime").hide();
+
+  $(".standard-time, .militaryTime, .ampm").on('click', function() {
+    $(".standard-time, .militaryTime, .ampm").toggle();
+  })
+
+  ////////////// GREETING //////////////
+  function greeting() {
+    let customerName = prompt("Please enter your name...");
+    if(customerName != null) {
+      document.getElementById("greeting-personal").innerHTML = theMessage + ", " + customerName + ".";
+    }
+  }
+  greeting();
 
 
   ////////////// QUOTE HOVER //////////////
