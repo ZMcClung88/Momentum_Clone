@@ -3,8 +3,11 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
 
   ////////////// TIME //////////////
   $scope.time = moment().format('h:mm ');
+
+  ////////////// AMPM //////////////
   $scope.ampm = moment().format('a');
 
+  ////////////// AMPM HOVER EFFECT //////////////
   $(function() {
     $("#time").hover(function() {
       $("#ampm").fadeIn("slow");
@@ -13,6 +16,18 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
         $("#ampm").fadeOut("fast");
     });
   })
+
+  ////////////// MILITARY TIME //////////////
+  $scope.militaryTime = moment().format('H:mm');
+
+  ////////////// TOGGLE TIME AND MILITARY TIME //////////////
+  $("#militaryTime").hide();
+
+  $(".standard-time, .militaryTime, .ampm").on('click', function() {
+    $(".standard-time, .militaryTime, .ampm").toggle();
+  })
+
+  ////////////// GREETING //////////////
 
   const theHours = new Date().getHours();
   let theMessage;
@@ -28,17 +43,6 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
     theMessage = evening;
   }
 
-  ////////////// MILITARY TIME //////////////
-  $scope.militaryTime = moment().format('H:mm');
-
-  ////////////// TOGGLE TIME AND MILITARY TIME //////////////
-  $("#militaryTime").hide();
-
-  $(".standard-time, .militaryTime, .ampm").on('click', function() {
-    $(".standard-time, .militaryTime, .ampm").toggle();
-  })
-
-  ////////////// GREETING //////////////
   function greeting() {
     let customerName = prompt("Please enter your name...");
     if(customerName != null) {
@@ -65,6 +69,7 @@ angular.module('app').controller('mainCtrl', function($scope, $rootScope, backgr
     let images = backgroundService.backgroundImages;
     let randomNumber = Math.floor(Math.random() * images.length);
     let randomImage = images[randomNumber];
+    
     return {
       "background-image": 'url(' + randomImage + ')'
     };
